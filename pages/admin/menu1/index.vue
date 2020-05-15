@@ -23,7 +23,11 @@ import Card from '~/components/UI/card/Card.vue'
   components: {
     Card
   },
-  layout: 'admin'
+  layout: 'admin',
+  validate({ params, query, store }) {
+    console.log(params)
+    return true
+  }
 })
 export default class FirstMenuPage extends Vue {
   posts: Array<object> = []

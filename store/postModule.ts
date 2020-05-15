@@ -13,6 +13,7 @@ export default class PostModule extends VuexModule {
    * STATE
    */
   public posts: Array<IPost> = []
+
   public post: IPost | null = null
 
   @Action

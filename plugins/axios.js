@@ -12,7 +12,7 @@ export default (ctx) => {
 
   //  request에서 기본적으로 로그 찍도록 설정
   ctx.$axios.onRequest((config) => {
-    console.log('Making request to ' + config.url)
+    console.log(`Making request to ${config.url}`)
   })
 
   // ctx.$axios.onResponse(async (response) => {
@@ -24,7 +24,7 @@ export default (ctx) => {
 
   // 에러 공통 처리
   ctx.$axios.onError((error, redirect) => {
-    const code = parseInt(error.response && error.response.status)
+    const code = parseInt(error.response && error.response.status, 10)
     if (code === 400) {
       redirect('/400')
     }
