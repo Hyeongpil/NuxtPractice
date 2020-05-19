@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 
 module.exports = {
   mode: 'universal',
@@ -25,7 +26,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/main.scss'],
+  css: ['@/assets/css/tailwind.css', '@/assets/scss/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -33,7 +34,7 @@ module.exports = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
+  buildModules: ['@nuxt/typescript-build'],
   /*
    ** Nuxt.js modules
    */
@@ -42,10 +43,34 @@ module.exports = {
     'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
+
+    // 성능 최적화(파일 크기 줄이기) 때 사용
+    // 'nuxt-purgecss'
   ],
+  // 성능 최적화(파일 크기 줄이기) 때 사용
+  // purgeCSS: {
+  //   mode: 'postcss',
+  //   enabled: process.env.NODE_ENV === 'production',
+  //   paths: [
+  //     'components/**/*.vue',
+  //     'layouts/**/*.vue',
+  //     'pages/**/*.vue',
+  //     'plugins/**/*.js'
+  //   ],
+  //   styleExtensions: ['.css'],
+  //   whitelist: ['body', 'html', 'nuxt-progress'],
+  //   whitelistPatterns: [/^b-/],
+  //   whitelistPatternsChildren: [/^tabs/, /^is-/, /^b-/, /^navbar/],
+  //   extractors: [
+  //     {
+  //       extractor: (content) => content.match(/[A-z0-9-:\\/]+/g) || [],
+  //       extensions: ['html', 'vue', 'js']
+  //     }
+  //   ]
+  // },
 
   /*
    ** Axios module configuration
@@ -69,12 +94,23 @@ module.exports = {
     filename:
       process.env.NODE_ENV === 'production'
         ? '.env'
-        : '.env.' + process.env.NODE_ENV
+        : `.env.${process.env.NODE_ENV}`
   },
   /*
    ** Build configuration
    */
   build: {
+    // tailwind 수동 적용 - https://regenrek.com/posts/how-to-use-tailwind-css-with-nuxt/
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {}
+      },
+      preset: {
+        stage: 1
+      }
+    },
     /*
      ** You can extend webpack config here
      */
