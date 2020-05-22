@@ -43,10 +43,5 @@ export default class AdminTab extends Vue {
   public openTabContent(index: number): void {
     this.$router.push(this.items[index].to)
   }
-
-  // buefy 템플릿의 버튼 컴포넌트에 크기를 지정하기 위한 실제 이름으로 변환합니다
-  get realNameOfSizeProperty() {
-    return `is-${this.size}`
-  }
 }
 </script>

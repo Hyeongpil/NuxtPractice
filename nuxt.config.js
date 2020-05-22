@@ -110,10 +110,10 @@ module.exports = {
       preset: {
         stage: 1
       }
-    },
+    }
     /*
      ** You can extend webpack config here
      */
-    extend(_config, _ctx) {}
+    // extend(_config, _ctx) {}
   }
 }
