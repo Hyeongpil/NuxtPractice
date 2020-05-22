@@ -23,4 +23,3 @@ import Card from '~/components/UI/card/Card.vue'
 })
 export default class Inspire extends Vue {}
 </script>
-ㅊ

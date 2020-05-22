@@ -263,3 +263,56 @@ onFullNameChanged(){
      }
   );
   ~~~
+
+## TypeScript
+
+### 1. Props
+
+#### a. 필수인 프로퍼티
+
+필수인 프로퍼티는 되도록 디폴트 값을 가지도록 합니다. 디폴트 값을 가지므로 Nullable 처리 ( ! )를 할 필요가 없지만, Vetur가 인식하지 못하므로 Nullable 처리를 해줍니다.
+
+nullable처리를 하되, 디폴트 값을 가지도록 하여 null인 경우가 없도록 하며, vetur로 인해 문제로 검출되지 않도록 하는 것입니다.
+
+~~~typescript
+@Prop({ required: true, default: '버튼' })
+text!: string
+~~~
+
+#### b. 옵션인 프로퍼티
+
+옵션인 프로퍼티는 필수로 디폴트 값을 가지도록하며, required를 false로 함으로써 nullable 하도록 합니다.
+
+~~~typescript
+@Prop({ required:false, default: 10 })
+age!: number
+~~~
+
+#### c. 수정이 필요한 프로퍼티
+
+자동으로 computed에 get,set 을 만들어주는 @PropSync 를 사용합니다.
+
+~~~typescript
+//Prop과 달리 prop 이름을 인수에 설정하며,
+//여기서 syncedName 은 computed 명이다.
+
+@PropSync('name', { required: true, default: '이름', type: String })
+syncedName!: string
+~~~
+
+
+
+### 2. Script 순서
+
+a. props
+
+b. data
+
+c. computed
+
+d. watch
+
+e. 생애주기
+
+f. methods
+

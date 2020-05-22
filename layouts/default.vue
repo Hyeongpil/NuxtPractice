@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 
-import NavbarDefault from './components/NavbarDefault.vue'
+import NavbarDefault from '@/components/organisms/navigations/NavbarDefault.vue'
 @Component({
   components: {
     NavbarDefault

@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 // import ButtonReadme from '../components/UI/buttons/README.md'
 import InstallGuide from './guides/Install.md'
 import CodeStyleGuide from './guides/CodeStyle.md'
+import ComponentDesign from './guides/ComponentDesign.md'
 
 storiesOf('가이드', module)
   .addParameters({
@@ -22,7 +23,7 @@ storiesOf('가이드', module)
     }
   )
   .add(
-    '3. Project structure',
+    '2. 코드 스타일',
     () => {
       return {}
     },
@@ -33,35 +34,13 @@ storiesOf('가이드', module)
     }
   )
   .add(
-    '4. Code Style',
+    '3. 컴포넌트 디자인',
     () => {
       return {}
     },
     {
       readme: {
-        content: CodeStyleGuide
-      }
-    }
-  )
-  .add(
-    '4. How to use Store',
-    () => {
-      return {}
-    },
-    {
-      readme: {
-        content: CodeStyleGuide
-      }
-    }
-  )
-  .add(
-    '5. How to communicate server ',
-    () => {
-      return {}
-    },
-    {
-      readme: {
-        content: CodeStyleGuide
+        content: ComponentDesign
       }
     }
   )

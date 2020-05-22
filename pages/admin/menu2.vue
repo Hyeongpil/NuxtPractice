@@ -25,10 +25,10 @@ import { postStore } from '@/store'
     Card
   },
   layout: 'admin',
-  validate({ params, query, store, redirect }) {
-    console.log(params)
-    return false
-  },
+  // validate({ params, query, store, redirect }) {
+  //   console.log(params)
+  //   return false
+  // },
   async fetch() {
     await postStore.fetch_posts()
   }

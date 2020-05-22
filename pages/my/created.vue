@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import EventCard from '~/components/UI/card/EventCard.vue'
+import EventCard from '~/components/organisms/EventCard.vue'
 @Component({
   components: {
     EventCard

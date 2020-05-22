@@ -24,7 +24,7 @@ addParameters({
     theme
   },
   readme: {
-    codeTheme: 'a11y-dark'
+    codeTheme: 'a11y-dark',
   }
 })
 
@@ -32,8 +32,13 @@ function loadStories() {
   const req = require.context('../stories', true)
   req.keys().forEach((filename) => req(filename))
 
+  const atomComponents = require.context('../components/atoms/', true, /\.stories\.js$/)
+  atomComponents.keys().forEach((filename) => atomComponents(filename))
+
   const req2 = require.context('../components/', true, /\.stories\.js$/)
   req2.keys().forEach((filename) => req2(filename))
+
+
 }
 
 configure(loadStories, module)
