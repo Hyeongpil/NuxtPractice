@@ -11,7 +11,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class BlockText extends Vue {
-  @Prop({ required: false, default: '1' })
+  @Prop({ required: false, default: '20' })
   height!: string
 
   @Prop({ required: false })
@@ -25,7 +25,6 @@ export default class BlockText extends Vue {
 
 <style lang="scss" scoped>
 .ln-divider {
-  @apply w-full;
-  height: 1px;
+  width: 1px;
 }
 </style>
