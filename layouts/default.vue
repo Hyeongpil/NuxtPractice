@@ -2,8 +2,8 @@
   <div>
     <navbar-default class="container" />
     <line-divider class="hidden sm:visible md:block" />
-    <section class="container">
-      <nuxt class="container" />
+    <section>
+      <nuxt />
     </section>
   </div>
 </template>
