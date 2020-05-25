@@ -1,9 +1,9 @@
 <template>
   <div>
     <navbar-default class="container" />
-
+    <line-divider class="hidden sm:visible md:block" />
     <section class="container">
-      <nuxt />
+      <nuxt class="container" />
     </section>
   </div>
 </template>

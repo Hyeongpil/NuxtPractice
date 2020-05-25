@@ -66,8 +66,11 @@ module.exports = {
       transparent: 'transparent',
       black: '#22292f',
       white: '#ffffff',
-      grey: '#b8c2cc',
-      'grey-light': '#dae1e7',
+      grey: '#F7F7F7',
+      'grey-100': '#EDEDED',
+      'grey-200': '#DFDFDF',
+      'grey-300': '#D1D1D1',
+      'grey-400': '#9a9a9a',
       background: '#F9F9FF',
       primary: '#414fff'
     },

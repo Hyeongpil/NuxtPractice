@@ -4,6 +4,11 @@ module.exports = {
     browser: true,
     node: true
   },
+  globals: {
+    workbox: false,
+    importScripts:false,
+    
+  },
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'airbnb-base',

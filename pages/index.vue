@@ -1,8 +1,5 @@
 <template>
-  <img
-    src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
-    alt="Lightweight UI components for Vue.js based on Bulma"
-  />
+  <div>첫 화면</div>
 </template>
 
 <script lang="ts">
@@ -10,8 +7,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
 // import { userStore } from '@/store'
 
 @Component({
-  components: {},
-  layout: 'full'
+  components: {}
 })
 export default class Login extends Vue {}
 </script>

@@ -8,6 +8,25 @@
 // Set your colors
 $primary: #414fff;
 $primary-invert: findColorInvert($primary);
+
+$secondary: #EDEEFF;
+$secondary-invert: findColorInvert($secondary);
+
+$grey: #F7F7F7;
+$grey-invert: findColorInvert($grey);
+
+$grey-100: #EDEDED;
+$grey-100-invert: findColorInvert($grey-100);
+
+$grey-200: #DFDFDF;
+$grey-200-invert: findColorInvert($grey-200);
+
+$grey-300: #D1D1D1;
+$grey-300-invert: findColorInvert($grey-300);
+
+$grey-400: #9a9a9a;
+$grey-400-invert: findColorInvert($grey-400);
+
 $twitter: #4099ff;
 $twitter-invert: findColorInvert($twitter);
 
@@ -35,6 +54,10 @@ $colors: (
   'primary': (
     $primary,
     $primary-invert
+  ),
+  'secondary': (
+    $secondary,
+    $secondary-invert
   ),
   'info': (
     $info,
