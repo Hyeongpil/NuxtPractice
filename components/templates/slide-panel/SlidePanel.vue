@@ -65,9 +65,6 @@ export default class SlidePanel extends Vue {
 .panel.active {
   display: flex;
   flex-direction: column;
-  // height: calc(100vh - 55px);
-  // transition: 2s flex ease-in-out;
-  //
 }
 
 .panel__expand__area.active {

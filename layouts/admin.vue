@@ -16,13 +16,30 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import NavbarAdmin from '@/components/organisms/navigations/NavbarAdmin.vue'
 import AdminTab from '@/components/molecules/tabs/AdminTab.vue'
 
+import { settingStore } from '@/store'
+
 @Component({
   components: {
     NavbarAdmin,
     AdminTab
   }
 })
-export default class AdminLayout extends Vue {}
+export default class AdminLayout extends Vue {
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.handleWindowResize)
+    })
+    settingStore.updateWindowWidth(window.innerWidth)
+  }
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleWindowResize)
+  }
+
+  public handleWindowResize(e: any) {
+    settingStore.updateWindowWidth(e.currentTarget.innerWidth)
+  }
+}
 </script>
 
 <style lang="scss" scoped>

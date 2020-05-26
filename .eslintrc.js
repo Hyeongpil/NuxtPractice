@@ -7,6 +7,7 @@ module.exports = {
   globals: {
     workbox: false,
     importScripts:false,
+    clientWidth:false
     
   },
   extends: [
