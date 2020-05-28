@@ -23,7 +23,9 @@
     "express": "^4.16.4",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
-    "nuxt-property-decorator": "^2.7.2"
+    "nuxt-property-decorator": "^2.7.2",
+    "nuxt-validate": "^1.0.1",
+    "vee-validate": "^3.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

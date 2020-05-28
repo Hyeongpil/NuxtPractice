@@ -34,7 +34,8 @@ module.exports = {
     '@/plugins/axios',
     '@/plugins/api-accessor',
     '@/plugins/cypress',
-    '@/plugins/global-components'
+    '@/plugins/global-components',
+    '@/plugins/validator'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -101,10 +102,19 @@ module.exports = {
         ? '.env'
         : `.env.${process.env.NODE_ENV}`
   },
+  nuxtValidate: {
+    lang: 'es',
+    nuxti18n: {
+      locale: {
+        'zh-CN': 'zh_CN'
+      }
+    }
+  },
   /*
    ** Build configuration
    */
   build: {
+    transpile: ['vee-validate/dist/rules'],
     // tailwind 수동 적용 - https://regenrek.com/posts/how-to-use-tailwind-css-with-nuxt/
     postcss: {
       plugins: {
