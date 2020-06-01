@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/vue'
 import InstallGuide from './guides/Install.md'
 import CodeStyleGuide from './guides/CodeStyle.md'
 import ComponentDesign from './guides/ComponentDesign.md'
+import Dependencies from './guides/dependencies.md'
 
 storiesOf('가이드', module)
   .addParameters({
@@ -41,6 +42,17 @@ storiesOf('가이드', module)
     {
       readme: {
         content: ComponentDesign
+      }
+    }
+  )
+  .add(
+    '4. 의존성 및 웹팩 설정',
+    () => {
+      return {}
+    },
+    {
+      readme: {
+        content: Dependencies
       }
     }
   )

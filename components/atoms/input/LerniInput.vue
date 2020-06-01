@@ -2,12 +2,12 @@
   <div>
     <input
       ref="input"
-      class="lerni-input"
       :type="type"
       v-bind="$attrs"
       :class="[customClass]"
       :readonly="readonly"
       :disabled="getDisabled"
+      class="lerni-input"
       @input="handleInput"
       @focus="handleFocus"
       @blur="handleBlur"
