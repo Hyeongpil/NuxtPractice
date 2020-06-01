@@ -1,14 +1,14 @@
 <template>
-  <div>내정보에유</div>
+  <div>이벤트 신청 페이지입니다</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'EventRegisterUI'
 })
-export default class MypageUI extends Vue {}
+export default class EventRegisterUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

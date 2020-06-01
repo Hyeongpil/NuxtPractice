@@ -1,14 +1,15 @@
 <template>
-  <div>내정보에유</div>
+  <div>권한없음 페이지</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name:'NotAuthorizedUI',
+  layout: 'error'
 })
-export default class MypageUI extends Vue {}
+export default class NotAuthorizedUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

@@ -32,9 +32,10 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import EventCard from '~/components/organisms/EventCard.vue'
 @Component({
+  name: 'CreatedUI',
   components: {
     EventCard
   }
 })
-export default class Created extends Vue {}
+export default class CreatedUI extends Vue {}
 </script>

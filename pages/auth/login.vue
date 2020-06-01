@@ -30,10 +30,11 @@ import { Vue, Component } from 'nuxt-property-decorator'
 // import { userStore } from '@/store'
 
 @Component({
+  name: 'LoginUI',
   components: {},
   layout: 'full'
 })
-export default class Login extends Vue {}
+export default class LoginUI extends Vue {}
 </script>
 
 <style></style>

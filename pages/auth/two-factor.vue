@@ -1,14 +1,15 @@
 <template>
-  <div>내정보에유</div>
+  <div>투팩터쓰</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'TwoFactorUI',
+  layout: 'full'
 })
-export default class MypageUI extends Vue {}
+export default class TwoFactorUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

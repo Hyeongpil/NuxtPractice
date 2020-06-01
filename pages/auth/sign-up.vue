@@ -1,14 +1,15 @@
 <template>
-  <div>내정보에유</div>
+  <div>회원가입 할까요</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'SignUpUI',
+  layout: 'full'
 })
-export default class MypageUI extends Vue {}
+export default class SignUpUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

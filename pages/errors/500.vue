@@ -1,14 +1,14 @@
 <template>
-  <div>내정보에유</div>
+  <div>500에러 페이지</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'ErrorUI'
 })
-export default class MypageUI extends Vue {}
+export default class ErrorUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>
