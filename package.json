@@ -5,7 +5,8 @@
   "author": "Devist",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server --open",
+    "local": "npm run mockup & npm run storybook & cross-env NODE_ENV=local nodemon server/index.js --watch server --open",
+    "dev": "npm run storybook & cross-env NODE_ENV=development nodemon server/index.js --watch server open",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "mockup": "cd server/mock && ts-node-dev --respawn mock-server.ts",

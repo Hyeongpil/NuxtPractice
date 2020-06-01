@@ -2,11 +2,53 @@
 
 > 서비스연구담당 오동환 - 초안 작성 / 2020. 04.08 
 
-> 
+> 서비스연구담당 오동환 - build setup 수정 / 2020.06.01
 
 
 
-## A. Build 환경
+## A. Build Setup
+
+```bash
+# install dependencies
+$ npm install
+
+# localhost:3000으로 개발 서버 실행 + 스타일 가이드 실행
+# 목업서버(localhost:4000) 활용하여 개발할 때 사용
+$ npm run local
+
+# localhost:3000으로 개발 서버 실행 + 스타일 가이드 실행
+# 개발서버(http://52.231.73.206/rest) 활용하여 개발할 때 사용
+$ npm run dev
+
+# 제품 빌드 및 서버 실행에 사용 (배포시 사용)
+$ npm run build
+$ npm run start
+
+##############
+# 기타
+##############
+
+# generate static project (정적 호스팅에 사용)
+$ npm run generate
+
+# storybook 실행 - 코딩 규칙, 스타일 가이드 확인
+$ npm run storybook
+
+# storybook 빌드
+$ npm run build-storybook
+
+# e2e 테스트 - 터미널에서 실행(젠킨스에서 이용)
+$ npm run e2e
+
+# e2e 웹 테스트 - 웹 브라우저에서 실행
+$ npm run e2e:open
+```
+
+   
+
+
+
+## B. Build 환경
 
 사전에 (설치해야)갖추어야 할 개발도구는 다음과 같습니다.
 
@@ -65,37 +107,6 @@
    ***https://github.com/Devist/nuxt-study.git***
 
 ​    
-
-## B. Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-
-# storybook 실행 - 코딩 규칙, 스타일 가이드 확인
-$ npm run storybook
-
-# storybook 빌드
-$ npm run storybook
-
-# e2e 테스트 - 터미널에서 실행(젠킨스에서 이용)
-$ npm run e2e
-
-# e2e 웹 테스트 - 웹 브라우저에서 실행
-$ npm run e2e:open
-```
-
-   
 
 
 

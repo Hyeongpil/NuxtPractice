@@ -10,6 +10,8 @@ import LineDivider from '@/components/atoms/divider/LineDivider.vue'
 import VerticalDivider from '@/components/atoms/divider/VerticalDivider.vue'
 
 import FormItem from '@/components/molecules/form-item/FormItem.vue'
+import UserInformationInput from '@/components/molecules/form-item/UserInformationInput.vue'
+import Checkbox from '@/components/atoms/checkbox/Checkbox.vue'
 
 Vue.component('RoundButton', RoundButton)
 Vue.component('SquareButton', SquareButton)
@@ -18,3 +20,5 @@ Vue.component('BlockText', BlockText)
 Vue.component('LineDivider', LineDivider)
 Vue.component('VerticalDivider', VerticalDivider)
 Vue.component('FormItem', FormItem)
+Vue.component('UserInformationInput', UserInformationInput)
+Vue.component('Checkbox', Checkbox)

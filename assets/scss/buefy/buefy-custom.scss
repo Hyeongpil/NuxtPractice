@@ -87,6 +87,16 @@ $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
 
+// checkbox
+$checkbox-active-background-color: $white;
+$checkbox-border-color: #9A9A9A;
+$checkbox-border-radius: 8px;
+$checkbox-checkmark-color: $primary;
+
+.b-checkbox.checkbox input[type=checkbox]:checked + .check {
+  border-color:$primary !important;
+}
+
 
 
 // Import Bulma and Buefy styles
@@ -101,3 +111,4 @@ $link-focus-border: $primary;
 
 // Tabs
 $tabs-link-padding: 10em 10em !default
+

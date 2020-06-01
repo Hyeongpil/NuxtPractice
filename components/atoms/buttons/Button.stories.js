@@ -1,8 +1,9 @@
 // import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { text, select } from '@storybook/addon-knobs'
-import USAGE from './USAGE.md'
+import RoundButtonUsage from './RoundButtonUsage.md'
 import RoundButton from './RoundButton.vue'
+import SquareButtonUsage from './SquareButtonUsage.md'
 import SquareButton from './SquareButton.vue'
 
 const colorProp = {
@@ -75,35 +76,43 @@ stories.add(
   },
   {
     readme: {
-      content: USAGE
+      content: RoundButtonUsage
     }
   }
 )
 
-stories.add('SquareButton', () => {
-  return {
-    components: { SquareButton },
-    props: {
-      text: {
-        default: text('text (prop)', '버튼 텍스트')
+stories.add(
+  'SquareButton',
+  () => {
+    return {
+      components: { SquareButton },
+      props: {
+        text: {
+          default: text('text (prop)', '버튼 텍스트')
+        },
+        color: {
+          default: text('color (prop)', 'primary')
+        },
+        size: {
+          default: text('size (prop)', 'default')
+        },
+        // color: {
+        //   default: select(label, options, defaultValue, groupId)
+        // },
+        slot222: { default: text('slot', 'Are you awesome?') }
       },
-      color: {
-        default: text('color (prop)', 'primary')
-      },
-      size: {
-        default: text('size (prop)', 'default')
-      },
-      // color: {
-      //   default: select(label, options, defaultValue, groupId)
-      // },
-      slot222: { default: text('slot', 'Are you awesome?') }
-    },
-    template: `
+      template: `
       <SquareButton 
         :text="text" 
         :color="color"
         :size="size"
       />
       `
+    }
+  },
+  {
+    readme: {
+      content: SquareButtonUsage
+    }
   }
-})
+)

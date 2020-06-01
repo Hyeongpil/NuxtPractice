@@ -24,7 +24,11 @@ stories.add(
       components: { BlockText, RoundButton },
       props: {
         text: {
-          default: text('text', '문단 내용입니다', 'props')
+          default: text(
+            'text',
+            'BlockText는 줄바꿈이 일어나는 텍스트입니다.',
+            'props'
+          )
         }
       },
       template: `

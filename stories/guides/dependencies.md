@@ -1,103 +1,206 @@
-# 설치 및 빌드
+# 의존성 및 웹팩 설정
 
-> 서비스연구담당 오동환 - 초안 작성 / 2020. 04.08 
-
-> 
+> 서비스연구담당 오동환 - 초안 작성 / 2020. 06.01
 
 
 
-## A. Build 환경
+## 웹팩 설정
 
-사전에 (설치해야)갖추어야 할 개발도구는 다음과 같습니다.
+~~~javascript
+require('dotenv').config()
+const path = require('path')
 
-| 개발도구 | 버전     |
-| -------- | -------- |
-| NodeJS   | v12.12.0 |
-| NPM      | 6.11.3   |
+module.exports = {
+  mode: 'universal',
+  /*
+   ** Headers of the page
+   */
+  head: {
+    title: process.env.npm_package_name || '',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  },
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#fff' },
+  /*
+   ** Global CSS
+   */
+  css: ['@/assets/css/tailwind.css', '@/assets/scss/main.scss'],
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    '@/plugins/axios',
+    '@/plugins/api-accessor',
+    '@/plugins/cypress',
+    '@/plugins/global-components',
+    '@/plugins/validator'
+  ],
+  /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: ['@nuxt/typescript-build'],
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [
+    // Doc: https://buefy.github.io/#/documentation
+    'nuxt-buefy',
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    // '@nuxtjs/pwa',
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv'
 
-#### Step1. NodeJS 설치 및 버전 변경
+    // 성능 최적화(파일 크기 줄이기) 때 사용
+    // 'nuxt-purgecss'
+  ],
+  // 성능 최적화(파일 크기 줄이기) 때 사용
+  // purgeCSS: {
+  //   mode: 'postcss',
+  //   enabled: process.env.NODE_ENV === 'production',
+  //   paths: [
+  //     'components/**/*.vue',
+  //     'layouts/**/*.vue',
+  //     'pages/**/*.vue',
+  //     'plugins/**/*.js'
+  //   ],
+  //   styleExtensions: ['.css'],
+  //   whitelist: ['body', 'html', 'nuxt-progress'],
+  //   whitelistPatterns: [/^b-/],
+  //   whitelistPatternsChildren: [/^tabs/, /^is-/, /^b-/, /^navbar/],
+  //   extractors: [
+  //     {
+  //       extractor: (content) => content.match(/[A-z0-9-:\\/]+/g) || [],
+  //       extensions: ['html', 'vue', 'js']
+  //     }
+  //   ]
+  // },
 
-1. 터미널(명령 프롬프트)에서 NodeJS 가 사전에 설치되어 있는지 확인합니다.
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {
+    proxy: true
+  },
+  // 미들웨어에 접근인증을 위해 추가
+  router: {
+    middleware: 'auth'
+  },
+  proxy: {
+    '/albums': {
+      target: 'https://jsonplaceholder.typicode.com/',
+      secure: false,
+      changeOrigin: true
+    }
+  },
+  dotenv: {
+    filename:
+      process.env.NODE_ENV === 'production'
+        ? '.env'
+        : `.env.${process.env.NODE_ENV}`
+  },
+  nuxtValidate: {
+    lang: 'es',
+    nuxti18n: {
+      locale: {
+        'zh-CN': 'zh_CN'
+      }
+    }
+  },
+  /*
+   ** Build configuration
+   */
+  build: {
+    transpile: ['vee-validate/dist/rules'],
+    // tailwind 수동 적용 - https://regenrek.com/posts/how-to-use-tailwind-css-with-nuxt/
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {}
+      },
+      preset: {
+        stage: 1
+      }
+    }
+    /*
+     ** You can extend webpack config here
+     */
+    // extend(_config, _ctx) {}
+  }
+}
 
-- 버전 확인하는 명령어 실행 > ***$ node -v***
-
-- 버전이 나오는 경우, 2는 Skip 후 3으로 넘어갑니다.
-
-- 버전이 나오지 않는 경우, 2를 수행합니다.
-
-2. https://nodejs.org/ko/download/ 로 이동하여 nodejs를 다운로드 받습니다.(버전 상관없이 최신 버전 설치)
-   * 주의! : 맥북의 경우, 다운로드하여 설치하지 말고 터미널로 직접 설치해야 합니다.
-
-3. 설치 완료 후, 터미널(명령 프롬프트)에서 NodeJS 버전을 v12.12.0 로 변경합니다.
-
-- 버전 확인 ***$ node -v***
-
-- npm cache clean > ***$ npm clean cache -f***
-
-- n 설치(n이라는 package가 nodeJS의 버전별 설치를 가능하게 함) > ***$ npm install -g n***
-
-- 버전 변경하기 > ***$ n 12.12.0***
-
-- 버전이 12.12.0으로 변경되었는지 확인 > ***$ node -v***
-
-
-
-#### Step2. NPM 설치 및 버전 변경.
-
-
-
-1. Step1 을 따라했다면, npm이 설치되어 있을 겁니다.
-
-2. 터미널에서 npm 의 버전을 확인합니다.
-
-   \- 버전 확인하는 명령어 실행 > ***$npm -v***
-
-3. npm 버전 업그레이드 또는 다운그레이드 > ***$ npm install -g npm@6.11.3***
-
-4. 버전이 6.11.3로 변경되었는지 확인 > ***$ npm -v***
-
-
-
-#### Step3. Frontend 소스코드 Clone.
-
-1. 소스코드를 clone 합니다.
-
-   ***https://github.com/Devist/nuxt-study.git***
-
-​    
-
-## B. Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-
-# storybook 실행 - 코딩 규칙, 스타일 가이드 확인
-$ npm run storybook
-
-# storybook 빌드
-$ npm run storybook
-
-# e2e 테스트 - 터미널에서 실행(젠킨스에서 이용)
-$ npm run e2e
-
-# e2e 웹 테스트 - 웹 브라우저에서 실행
-$ npm run e2e:open
-```
-
-   
-
-
+~~~
 
 
+
+## 의존성(Dependencies)
+
+~~~javascript
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.2",
+    "nuxt-property-decorator": "^2.7.2",
+    "nuxt-validate": "^1.0.1",
+    "vee-validate": "^3.3.0"
+  },
+  "devDependencies": {"@babel/core": "^7.9.6",
+    "@nuxt/typescript-build": "^0.6.0",
+    "@nuxtjs/eslint-config-typescript": "^1.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^1.4.1",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/vue": "^5.3.18",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "cypress": "^4.5.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    /**
+     * 목업 서버에서 랜덤 데이터 등 목업 데이터 생성에 사용됩니다.
+     * https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/
+     */
+    "faker": "^4.1.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.3",
+    "node-sass": "^4.14.1",
+    "nodemon": "^1.18.9",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "storybook-readme": "^5.0.8",
+      /**
+      * 목업 서버에서 랜덤 데이터 등 목업 데이터 생성에 사용됩니다.
+      * https://cdn.rawgit.com/Marak/faker.js/master/examples/browser/
+      */
+    "tailwindcss": "^1.4.6",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "vuex-module-decorators": "^0.17.0"
+  }
+~~~
 
