@@ -20,7 +20,7 @@ import LerniForm from '@/components/molecules/form/LerniForm.vue'
 import FormItem from '@/components/molecules/form-item/FormItem.vue'
 import LerniInput from '@/components/atoms/input/LerniInput.vue'
 @Component({
-  name: 'EventUI',
+  name: 'FormTestUI',
   components: {
     LerniForm,
     FormItem,
@@ -28,7 +28,7 @@ import LerniInput from '@/components/atoms/input/LerniInput.vue'
   },
   layout: 'activity'
 })
-export default class EventUI extends Vue {
+export default class FormTestUI extends Vue {
   private email: string = ''
 
   private firstName: string = ''

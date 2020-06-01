@@ -1,14 +1,15 @@
 <template>
-  <div>내정보에유</div>
+  <div>포스트잇 액티비티</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'PostItUI',
+  layout: 'activity'
 })
-export default class MypageUI extends Vue {}
+export default class PostItUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

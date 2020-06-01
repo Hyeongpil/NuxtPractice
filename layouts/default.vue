@@ -2,7 +2,7 @@
   <div>
     <navbar-default class="container" />
     <line-divider class="hidden sm:visible md:block" />
-    <section>
+    <section class="container">
       <nuxt />
     </section>
   </div>

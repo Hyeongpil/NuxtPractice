@@ -1,14 +1,15 @@
 <template>
-  <div>내정보에유</div>
+  <div>질문 액티비티</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'QuestionUI',
+  layout: 'activity'
 })
-export default class MypageUI extends Vue {}
+export default class QuestionUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

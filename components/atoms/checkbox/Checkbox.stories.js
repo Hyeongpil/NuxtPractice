@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
-import { text, select } from '@storybook/addon-knobs'
+import { text } from '@storybook/addon-knobs'
 import USAGE from './CheckboxUsage.md'
 import Checkbox from './Checkbox.vue'
 
