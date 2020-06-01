@@ -92,3 +92,6 @@ sw.*
 # cypress testing reports
 test/e2e/screenshots
 test/e2e/videos
+
+mock/rest/*/*/*/mock/response.txt
+mock/rest/*/*/*/mock/response.txt
