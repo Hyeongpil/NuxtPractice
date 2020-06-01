@@ -45,8 +45,8 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
   name: 'EventInfo'
 })
 export default class EventInfo extends Vue {
-  @Prop(Object)
-  private eventInfo: object = {}
+  @Prop()
+  private eventInfo!: object
 
   private shareClicked() {
     this.$emit('share-click')
