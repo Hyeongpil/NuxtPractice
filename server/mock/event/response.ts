@@ -1,14 +1,9 @@
-// https://www.npmjs.com/package/faker
 import { IPost } from '../../../types/post.interface'
 
 const faker = require('faker')
 
 const MockResponse = {
-  // export interface RootState {
-  //   personnel: Personnel
-  //   user: User
-  // }
-
+  // 이벤트 리스트 객체 반환
   EventList: (): object => {
     const eventList: Array<IPost> = []
 

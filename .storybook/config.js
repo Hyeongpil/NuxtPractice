@@ -32,10 +32,10 @@ function loadStories() {
   const req = require.context('../stories', true)
   req.keys().forEach((filename) => req(filename))
 
-  const atomComponents = require.context('../components/atoms/', true, /\.stories\.js$/)
+  const atomComponents = require.context('../components/atoms/', true, /\.stories\.(js|mdx)$/)
   atomComponents.keys().forEach((filename) => atomComponents(filename))
 
-  const req2 = require.context('../components/', true, /\.stories\.js$/)
+  const req2 = require.context('../components/', true, /\.stories\.(js|mdx)$/)
   req2.keys().forEach((filename) => req2(filename))
 
 

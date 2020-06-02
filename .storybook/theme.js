@@ -32,7 +32,7 @@ export default create({
   // inputTextColor: 'black',
   // inputBorderRadius: 4,
 
-  brandTitle: 'Starter'
-  // brandUrl: 'https://lerni.kr',
-  // brandImage: 'https://lerni.kr/wp-content/uploads/2019/01/lerni-wlogo-1-e1548923862505.png',
+  brandTitle: 'LERNI 스타일 가이드',
+  brandUrl: 'https://lerni.kr',
+  brandImage: 'https://lerni.kr/wp-content/uploads/2019/01/lerni-wlogo-1-e1548923862505.png',
 })

@@ -32,11 +32,12 @@ const stories = storiesOf('Atom 컴포넌트/버튼', module)
 
 // stories.addDecorator(withKnobs)
 
-// stories.addParameters({
-//   readme: {
-//     content: USAGE
-//   }
-// })
+stories.addParameters({
+  component: RoundButton,
+  readme: {
+    content: RoundButton
+  }
+})
 
 stories.add(
   'RoundButton',

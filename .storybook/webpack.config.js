@@ -3,9 +3,10 @@ const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const updateWebpackConfig = require('storybook-readme/vue/updateWebpackConfig')
 
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+
 module.exports = async ({ config, mode }) => {
   updateWebpackConfig(config)
-
   config.resolve.extensions.push(
     '.ts',
     '.tsx',

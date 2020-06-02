@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 // import ButtonReadme from '../components/UI/buttons/README.md'
+import Introduce from './guides/Introduce.md'
 import InstallGuide from './guides/Install.md'
 import CodeStyleGuide from './guides/CodeStyle.md'
 import ComponentDesign from './guides/ComponentDesign.md'
@@ -13,7 +14,7 @@ storiesOf('가이드', module)
     }
   })
   .add(
-    '1. 설치 및 빌드',
+    '1. 소개',
     () => {
       return {}
     },
@@ -24,7 +25,18 @@ storiesOf('가이드', module)
     }
   )
   .add(
-    '2. 코드 스타일',
+    '2. 설치 및 빌드',
+    () => {
+      return {}
+    },
+    {
+      readme: {
+        content: InstallGuide
+      }
+    }
+  )
+  .add(
+    '3. 코드 스타일',
     () => {
       return {}
     },
@@ -35,7 +47,7 @@ storiesOf('가이드', module)
     }
   )
   .add(
-    '3. 컴포넌트 디자인',
+    '4. 컴포넌트 디자인',
     () => {
       return {}
     },
@@ -46,7 +58,7 @@ storiesOf('가이드', module)
     }
   )
   .add(
-    '4. 의존성 및 웹팩 설정',
+    '5. 의존성 및 웹팩 설정',
     () => {
       return {}
     },

@@ -9,7 +9,7 @@ import error500 from '~/components/error/500.vue'
 
 export default {
   name: 'NuxtError',
-  layout: 'default', // optional
+  layout: 'full', // optional
   props: {
     error: {
       type: Object,

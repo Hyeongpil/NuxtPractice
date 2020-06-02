@@ -1,7 +1,7 @@
 <template>
   <div class="error-404">
-    <h1>This page doesn’t exist222</h1>
-    <p>The link you clicked on may be broken or no longer exist.</p>
+    <h1>존재하지 않는 페이지입니다</h1>
+    <p>헤헤헤</p>
   </div>
 </template>
 <script>

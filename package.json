@@ -5,7 +5,7 @@
   "author": "Devist",
   "private": true,
   "scripts": {
-    "local": "npm run mockup & npm run storybook & cross-env NODE_ENV=local nodemon server/index.js --watch server --open",
+    "local": "npm run mockup &npm run storybook & cross-env NODE_ENV=local nodemon server/index.js --watch server --open",
     "dev": "npm run storybook & cross-env NODE_ENV=development nodemon server/index.js --watch server open",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
@@ -36,9 +36,11 @@
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/tailwindcss": "^1.4.1",
     "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
+    "@storybook/preset-typescript": "^3.0.0",
     "@storybook/vue": "^5.3.18",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
@@ -60,6 +62,7 @@
     "sass-loader": "^8.0.2",
     "storybook-readme": "^5.0.8",
     "tailwindcss": "^1.4.6",
+    "ts-loader": "^7.0.5",
     "ts-node-dev": "^1.0.0-pre.44",
     "vuex-module-decorators": "^0.17.0"
   }

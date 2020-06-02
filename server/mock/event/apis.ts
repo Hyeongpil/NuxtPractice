@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/**
- * BaseUrl - /api/user
- */
+/** **********************
+ * BaseUrl - /api/event
+ ************************ */
 
 import { Request, Response } from 'express'
-
-/**
- * 실제 업무처리 로직이 명시된 router import
- */
 
 import responseSend from '../common/format'
 

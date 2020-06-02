@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { text } from '@storybook/addon-knobs'
 import USAGE from './USAGE.md'
 import BlockText from './BlockText.vue'
-// import InlineText from './InlineText.vue'
+import InlineText from './InlineText.vue'
 
 import RoundButton from '../buttons/RoundButton.vue'
 
@@ -37,6 +37,39 @@ stories.add(
           text="버튼"
         />
         <BlockText 
+          :text="text" 
+        />
+      </div>
+      `
+    }
+  },
+  {
+    readme: {
+      content: USAGE
+    }
+  }
+)
+
+stories.add(
+  'InlineText',
+  () => {
+    return {
+      components: { InlineText, RoundButton },
+      props: {
+        text: {
+          default: text(
+            'text',
+            'InlineText는 줄바꿈이 일어나지 않는 텍스트입니다.',
+            'props'
+          )
+        }
+      },
+      template: `
+      <div>
+        <RoundButton 
+          text="버튼"
+        />
+        <InlineText 
           :text="text" 
         />
       </div>

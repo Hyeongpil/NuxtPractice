@@ -21,6 +21,7 @@ import { ValidationProvider } from 'vee-validate'
 })
 export default class FormItem extends Vue {
   @Prop()
+  //
   readonly label!: string
 
   @Prop({ required: true })
