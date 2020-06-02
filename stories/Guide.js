@@ -20,7 +20,7 @@ storiesOf('가이드', module)
     },
     {
       readme: {
-        content: InstallGuide
+        content: Introduce
       }
     }
   )
