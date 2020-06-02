@@ -6,7 +6,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'ParticipatedUI'
+  name: 'ParticipatedUI',
+  middleware: 'isLogin'
 })
 export default class ParticipatedUI extends Vue {}
 </script>

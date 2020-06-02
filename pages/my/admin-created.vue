@@ -6,7 +6,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'AdminCreatedUI'
+  name: 'AdminCreatedUI',
+  middleware: 'isLogin'
 })
 export default class AdminCreatedUI extends Vue {}
 </script>

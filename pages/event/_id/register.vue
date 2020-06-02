@@ -6,7 +6,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'EventRegisterUI'
+  name: 'EventRegisterUI',
+  middleware: 'isEventRegistered'
 })
 export default class EventRegisterUI extends Vue {}
 </script>

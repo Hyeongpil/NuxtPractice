@@ -6,7 +6,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'MypageUI'
+  name: 'MypageUI',
+  middleware: 'isLogin'
 })
 export default class MypageUI extends Vue {}
 </script>

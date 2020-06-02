@@ -7,7 +7,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   name: 'AttendanceUI',
-  layout: 'activity'
+  layout: 'activity',
+  middleware: 'enterEvent'
 })
 export default class AttendanceUI extends Vue {}
 </script>
