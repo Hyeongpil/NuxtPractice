@@ -6,7 +6,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'WithdrawalUI'
+  name: 'WithdrawalUI',
+  middleware: 'isLogin'
 })
 export default class WithdrawalUI extends Vue {}
 </script>

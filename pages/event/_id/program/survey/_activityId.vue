@@ -7,7 +7,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   name: 'SurveyUI',
-  layout: 'activity'
+  layout: 'activity',
+  middleware: 'enterEvent'
 })
 export default class SurveyUI extends Vue {}
 </script>

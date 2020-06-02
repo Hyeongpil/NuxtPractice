@@ -21,7 +21,8 @@ import EventInfo from '@/components/organisms/EventInfo.vue'
   components: {
     NavbarDefault,
     EventInfo
-  }
+  },
+  middleware: 'enterEvent'
 })
 export default class ActivityLayout extends Vue {}
 </script>

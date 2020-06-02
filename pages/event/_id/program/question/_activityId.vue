@@ -7,7 +7,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   name: 'QuestionUI',
-  layout: 'activity'
+  layout: 'activity',
+  middleware: 'enterEvent'
 })
 export default class QuestionUI extends Vue {}
 </script>

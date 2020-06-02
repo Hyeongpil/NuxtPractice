@@ -87,7 +87,7 @@ module.exports = {
   },
   // 미들웨어에 접근인증을 위해 추가
   router: {
-    middleware: 'auth'
+    middleware: 'setUserInfo'
   },
   proxy: {
     '/albums': {

@@ -6,7 +6,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'ChangePasswordUI'
+  name: 'ChangePasswordUI',
+  middleware: 'isLogin'
 })
 export default class ChangePasswordUI extends Vue {}
 </script>

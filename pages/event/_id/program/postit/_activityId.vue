@@ -7,7 +7,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   name: 'PostItUI',
-  layout: 'activity'
+  layout: 'activity',
+  middleware: 'enterEvent'
 })
 export default class PostItUI extends Vue {}
 </script>

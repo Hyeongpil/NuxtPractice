@@ -35,7 +35,8 @@ import EventCard from '~/components/organisms/EventCard.vue'
   name: 'CreatedUI',
   components: {
     EventCard
-  }
+  },
+  middleware: 'isLogin'
 })
 export default class CreatedUI extends Vue {}
 </script>

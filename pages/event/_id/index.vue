@@ -60,7 +60,8 @@ import { postStore } from '@/store'
   },
   async fetch() {
     await postStore.fetch_posts()
-  }
+  },
+  middleware: 'enterEvent'
 })
 export default class Login extends Vue {
   private animated: boolean = true
