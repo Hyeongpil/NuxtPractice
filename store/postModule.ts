@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { Module, VuexModule, Action, Mutation } from 'vuex-module-decorators'
-import { repositories } from '~/plugins/api-accessor'
+// import { repositories } from '~/plugins/accessor'
 import { IPost } from '~/types/post.interface'
 
 @Module({
@@ -18,8 +18,8 @@ export default class PostModule extends VuexModule {
 
   @Action
   async fetch_posts() {
-    const res = await repositories.post.all()
-    if (res.data) this.SET_POSTS(res.data)
+    // const res = await repositories.post.all()
+    // if (res.data) this.SET_POSTS(res.data)
   }
 
   @Mutation

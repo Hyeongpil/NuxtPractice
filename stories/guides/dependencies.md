@@ -41,7 +41,7 @@ module.exports = {
    */
   plugins: [
     '@/plugins/axios',
-    '@/plugins/api-accessor',
+    '@/plugins/accessor',
     '@/plugins/cypress',
     '@/plugins/global-components',
     '@/plugins/validator'
