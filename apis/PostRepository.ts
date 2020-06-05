@@ -1,22 +1,36 @@
-const resource = '/posts'
-export default ($axios: any) => ({
-  all() {
-    return $axios.get(`${resource}`)
-  },
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
-  show(id: any) {
-    return $axios.get(`${resource}/${id}`)
-  },
+export default class PostRepository {
+  private resource = '/posts'
 
-  create(payload: any) {
-    return $axios.post(`${resource}`, payload)
-  },
+  private $axios: NuxtAxiosInstance
 
-  update(id: any, payload: any) {
-    return $axios.post(`${resource}/${id}`, payload)
-  },
-
-  delete(id: any) {
-    return $axios.delete(`${resource}/${id}`)
+  constructor($axios: NuxtAxiosInstance) {
+    this.$axios = $axios
   }
-})
+
+  public all(): Promise<any> {
+    return this.$axios.get(this.resource)
+  }
+}
+// export default ($axios: NuxtAxiosInstance) => ({
+//   all(): Promise<any> {
+//     return $axios.get(`${resource}`)
+//   },
+
+//   show(id: any): Promise<any> {
+//     return $axios.get(`${resource}/${id}`)
+//   },
+
+//   create(payload: any): Promise<IUser> {
+//     return $axios.post(`${resource}`, payload)
+//   },
+
+//   update(id: any, payload: any) {
+//     return $axios.post(`${resource}/${id}`, payload)
+//   },
+
+//   delete(id: any) {
+//     return $axios.delete(`${resource}/${id}`)
+//   }
+// })

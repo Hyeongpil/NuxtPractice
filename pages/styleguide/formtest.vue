@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { ValidationContext } from 'vee-validate/dist/types/components/common'
 import LerniForm from '@/components/molecules/form/LerniForm.vue'
 import FormItem from '@/components/molecules/form-item/FormItem.vue'
 import LerniInput from '@/components/atoms/input/LerniInput.vue'
@@ -33,8 +34,8 @@ export default class FormTestUI extends Vue {
 
   private firstName: string = ''
 
-  private onSubmit(e: any) {
-    console.log('invalid :', e)
+  private onSubmit(e: ValidationContext) {
+    console.log('onSubmit validation :', e)
   }
 }
 </script>

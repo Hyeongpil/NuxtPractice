@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h3>인증 메일 재전송</h3>
+    <h3>비밀번호 재발급</h3>
     <lerni-form @onSubmit="onSubmit">
-      <form-item label="이메일" name="이메일" rules="required|email">
+      <form-item label="테스트 이메일" name="이메일" rules="required|email">
         <lerni-input v-model="email" type="email"></lerni-input>
       </form-item>
       <form-item name="submit">
-        <button type="submit">이메일 재전송</button>
+        <button type="submit">비밀번호 재발급</button>
       </form-item>
     </lerni-form>
   </div>
@@ -15,12 +15,17 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { ValidationContext } from 'vee-validate/dist/types/components/common'
+
 @Component({
-  name: 'EmailResendUI',
+  name: 'ReissuePasswordEmailUI',
   layout: 'full'
 })
-export default class EmailResendUI extends Vue {
+export default class ReissuePasswordEmailUI extends Vue {
   private email: string = ''
+
+  mounted() {
+    this.email = this.$route.query.email
+  }
 
   private async onSubmit(v: ValidationContext) {
     if (v.valid === false) {
@@ -29,9 +34,7 @@ export default class EmailResendUI extends Vue {
         type: 'is-info'
       })
     }
-    const response = this.$repositories.sign.reSendEmailVerificationLink(
-      this.email
-    )
+    const response = this.$repositories.sign.sendReIssuePasswordLink(this.email)
     console.log('response :', response)
   }
 }

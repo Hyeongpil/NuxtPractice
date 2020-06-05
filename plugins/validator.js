@@ -8,6 +8,31 @@ for (const rule in rules) {
   extend(rule, rules[rule])
 }
 
+extend('isPasswordCondition', (value) => {
+  const passwordConditionRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
+  return passwordConditionRegex.test(value)
+})
+
+extend('isContinueSameValue', (value) => {
+  // 같은 영문자&숫자 연속 4번 정규식
+  const continueOfSameTextOrNumberRegex = /(\w)\1\1\1/
+  // 같은 특수문자 연속 4번 정규식
+  const continueOfSameSpecialCharacterRegex = /([\\{\\}\\[\]\\/?.,;:|\\)*~`!^\-_+<>@\\#$%&\\\\=\\(\\'\\"])\1\1\1/
+  // 같은 한글 연속 4번 정규식
+  const continueOfSameKoreanRegex = /([가-힣ㄱ-ㅎㅏ-ㅣ\x20])\1\1\1/
+  return (
+    continueOfSameTextOrNumberRegex.test(value) ||
+    continueOfSameSpecialCharacterRegex.test(value) ||
+    continueOfSameKoreanRegex.test(value)
+  )
+})
+
+extend('isContinueNumber', (value) => {
+  // 연속된 숫자 정규식
+  const continueOfNumberRegex = /(0123)|(1234)|(2345)|(3456)|(4567)|(5678)|(6789)|(7890)/
+  return continueOfNumberRegex.test(value)
+})
+
 const ko = {
   code: 'ko',
   messages: {
@@ -37,7 +62,12 @@ const ko = {
     regex: '{_field_} 항목은 형식에 맞지 않습니다',
     required: '{_field_} 항목은 필수 정보입니다',
     required_if: '{_field_} 항목은 필수 정보입니다',
-    size: '{_field_} 항목의 크기는 {size}KB보다 작아야 합니다'
+    size: '{_field_} 항목의 크기는 {size}KB보다 작아야 합니다',
+    isPasswordCondition:
+      '{_field_}는 최소 8자리이상 숫자, 문자, 특수문자 각각 1개 이상 포함하여야 합니다.',
+    isContinueSameValue:
+      '{_field_}는 연속으로 같은 문자를 4번이상 사용할 수 없습니다.',
+    isContinueNumber: '{_field_}는 연속된 숫자를 사용할 수 없습니다.'
   }
 }
 localize('ko', ko)

@@ -83,18 +83,13 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true
+    // proxy: true
+    // proxyHeaders: false,
+    // credentials: false
   },
   // 미들웨어에 접근인증을 위해 추가
   router: {
     middleware: 'setUserInfo'
-  },
-  proxy: {
-    '/albums': {
-      target: 'https://jsonplaceholder.typicode.com/',
-      secure: false,
-      changeOrigin: true
-    }
   },
   dotenv: {
     filename:

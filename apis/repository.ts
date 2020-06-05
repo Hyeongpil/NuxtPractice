@@ -1,15 +1,16 @@
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import PostRepository from '~/apis/PostRepository'
 import UserRepository from '~/apis/UserRepository'
-import CommentRepository from '~/apis/CommentRepository'
-import AlbumRepository from '~/apis/AlbumRepository'
-import PhotoRepository from '~/apis/PhotoRepository'
-import TodoRepository from '~/apis/TodoRepository'
+import SignRepository from './SignRepository'
 
-export default ($axios: any) => ({
-  post: PostRepository($axios),
-  user: UserRepository($axios),
-  comment: CommentRepository($axios),
-  album: AlbumRepository($axios),
-  photo: PhotoRepository($axios),
-  todo: TodoRepository($axios)
+export default ($axios: NuxtAxiosInstance) => ({
+  post: new PostRepository($axios),
+  user: new UserRepository($axios),
+  sign: new SignRepository($axios)
 })
+
+export interface IRepositorys {
+  post: PostRepository
+  user: UserRepository
+  sign: SignRepository
+}

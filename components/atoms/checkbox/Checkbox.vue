@@ -1,5 +1,5 @@
 <template>
-  <b-checkbox v-model="checkbox">
+  <b-checkbox v-bind="$attrs">
     {{ label }}
   </b-checkbox>
 </template>

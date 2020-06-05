@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-centered is-vcentered h-screen">
+  <div class="flex justify-center items-center h-screen">
     <nuxt />
   </div>
 </template>

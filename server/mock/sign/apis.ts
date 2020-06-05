@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /** **********************
- * BaseUrl - /api/user
+ * BaseUrl - /sign
  ************************ */
 
 import express, { Request, Response } from 'express'
@@ -15,14 +15,14 @@ import MockResponse from './response'
 
 const router = express.Router()
 
-router.get('/login', (req: Request, res: Response) => {
-  const data = MockResponse.LoginFormData()
+router.post('/sign-up', (req: Request, res: Response) => {
+  const data = { test: 'created' }
   responseSend(data, res)
 })
 
-router.get('/me', (req: Request, res: Response) => {
-  const data = MockResponse.UserInfoData()
-  responseSend(data, res)
-})
+// router.get('/me', (req: Request, res: Response) => {
+//   const data = MockResponse.UserInfoData()
+//   responseSend(data, res)
+// })
 
 module.exports = router

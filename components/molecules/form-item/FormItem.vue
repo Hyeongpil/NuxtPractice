@@ -3,8 +3,12 @@
     <div class="pt-3">
       <p class="text-s font-bold">{{ label }}</p>
     </div>
-    <ValidationProvider v-slot="{ errors }" :name="name" :rules="rules">
-      <slot></slot>
+    <ValidationProvider
+      v-slot="{ validate, errors }"
+      :name="name"
+      :rules="rules"
+    >
+      <slot :validate="validate"></slot>
       <span class="text-xs text-warning">{{ errors[0] }}</span>
     </ValidationProvider>
   </div>

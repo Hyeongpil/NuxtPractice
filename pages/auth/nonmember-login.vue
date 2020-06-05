@@ -1,17 +1,15 @@
 <template>
-  <div>
-    초기 비밀번호 변경 페이지에유
-  </div>
+  <div>비회원 로그인 뷰</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'InitialPasswordUI',
+  name: 'NonMemberLoginUI',
   layout: 'full'
 })
-export default class InitialPasswordUI extends Vue {}
+export default class NonMemberLoginUI extends Vue {}
 </script>
 
 <style ${2|scoped,|} lang="scss"></style>

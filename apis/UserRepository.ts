@@ -1,22 +1,31 @@
-const resource = '/users'
-export default ($axios: any) => ({
-  all() {
-    return $axios.get(`${resource}`)
-  },
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
+import { AxiosResponse } from 'axios'
+import {
+  IUser,
+  IPassword,
+  ITwoFactorVerification
+} from '../types/user.interface'
 
-  show(id: any) {
-    return $axios.get(`${resource}/${id}`)
-  },
+export default class UserRepository {
+  private url = '/user'
 
-  create(payload: any) {
-    return $axios.post(`${resource}`, payload)
-  },
+  private $axios: NuxtAxiosInstance
 
-  update(id: any, payload: any) {
-    return $axios.post(`${resource}/${id}`, payload)
-  },
-
-  delete(id: any) {
-    return $axios.delete(`${resource}/${id}`)
+  constructor($axios: NuxtAxiosInstance) {
+    this.$axios = $axios
   }
-})
+
+  public fetch(): Promise<AxiosResponse<IUser>> {
+    return this.$axios.get(`${this.url}/me`)
+  }
+
+  public password(payload: IPassword): Promise<AxiosResponse<IUser>> {
+    return this.$axios.patch(`${this.url}/me/password`, payload)
+  }
+
+  public twoFactorVerification(
+    payload: ITwoFactorVerification
+  ): Promise<AxiosResponse<any>> {
+    return this.$axios.patch(`${this.url}/me/two-factor-verification`, payload)
+  }
+}

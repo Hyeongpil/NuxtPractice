@@ -13,6 +13,9 @@ import FormItem from '@/components/molecules/form-item/FormItem.vue'
 import UserInformationInput from '@/components/molecules/form-item/UserInformationInput.vue'
 import Checkbox from '@/components/atoms/checkbox/Checkbox.vue'
 
+import LerniInput from '@/components/atoms/input/LerniInput.vue'
+import LerniForm from '@/components/molecules/form/LerniForm.vue'
+
 Vue.component('RoundButton', RoundButton)
 Vue.component('SquareButton', SquareButton)
 Vue.component('InlineText', InlineText)
@@ -22,3 +25,5 @@ Vue.component('VerticalDivider', VerticalDivider)
 Vue.component('FormItem', FormItem)
 Vue.component('UserInformationInput', UserInformationInput)
 Vue.component('Checkbox', Checkbox)
+Vue.component('LerniInput', LerniInput)
+Vue.component('LerniForm', LerniForm)

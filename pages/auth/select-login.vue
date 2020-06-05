@@ -1,5 +1,15 @@
 <template>
-  <div>로그인 선택 페이지에요</div>
+  <div class="flex flex-col">
+    <nuxt-link to="login">
+      <b-button type="is-primary" rounded>로그인</b-button>
+    </nuxt-link>
+    <nuxt-link to="nonmember-login">
+      <b-button class="mt-3" type="is-primary" rounded>비회원</b-button>
+    </nuxt-link>
+    <nuxt-link to="sign-up">
+      <p class="mt-10">회원가입</p>
+    </nuxt-link>
+  </div>
 </template>
 
 <script lang="ts">
