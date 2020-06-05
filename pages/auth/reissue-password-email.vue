@@ -2,7 +2,7 @@
   <div>
     <h3>비밀번호 재발급</h3>
     <lerni-form @onSubmit="onSubmit">
-      <form-item label="테스트 이메일" name="이메일" rules="required|email">
+      <form-item label="이메일" name="이메일" rules="required|email">
         <lerni-input v-model="email" type="email"></lerni-input>
       </form-item>
       <form-item name="submit">
@@ -21,7 +21,7 @@ import { ValidationContext } from 'vee-validate/dist/types/components/common'
   layout: 'full'
 })
 export default class ReissuePasswordEmailUI extends Vue {
-  private email: string = ''
+  private email: string | (string | null)[] = ''
 
   mounted() {
     this.email = this.$route.query.email

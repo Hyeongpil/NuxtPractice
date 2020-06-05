@@ -36,13 +36,13 @@ import { IPasswordLinkVerification } from '../../types/sign.interface'
   layout: 'full'
 })
 export default class ReissuePasswordUI extends Vue {
-  private email: string = ''
+  private email: string | (string | null)[] = ''
 
   private password: string = ''
 
   private comfirmPassword: string = ''
 
-  mounted() {
+  created() {
     this.email = this.$route.query.email
   }
 

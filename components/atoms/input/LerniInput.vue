@@ -2,8 +2,8 @@
   <div>
     <input
       ref="input"
+      v-model="inputVal"
       :type="type"
-      v-bind="$attrs"
       :class="[customClass]"
       :readonly="readonly"
       :disabled="getDisabled"
@@ -43,6 +43,14 @@ export default class LerniInput extends Vue {
 
   get getDisabled(): boolean {
     return this.disabled
+  }
+
+  get inputVal() {
+    return this.value
+  }
+
+  set inputVal(val: [Number, String]) {
+    this.$emit('input', val)
   }
 
   private handleInput(event: any) {

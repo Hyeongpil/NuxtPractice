@@ -25,7 +25,7 @@ export default class SignRepository {
   }
 
   public sendReIssuePasswordLink(
-    payload: string
+    payload: string | (string | null)[]
   ): Promise<AxiosResponse<string>> {
     return this.$axios.post(`${this.url}/send-re-issue-password-link`, payload)
   }
